@@ -47,10 +47,6 @@ function buildCharMap(str) {
     return charMap
 }
 
-//SOLUTION 3
-// function anagrams(stringA, stringB){
-
-// }
 let result = anagrams('hello', 'llohe')
 console.log(result)
 module.exports = anagrams;
