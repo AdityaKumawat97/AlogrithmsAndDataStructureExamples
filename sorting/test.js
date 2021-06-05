@@ -31,7 +31,7 @@ describe('Merge sort', () => {
 
     expect(merge(left, right)).toEqual([1,2,8,10,12]);
   });
-  
+
   test('sorts an array', () => {
     expect(mergeSort(getArray())).toEqual(getSortedArray());
   });

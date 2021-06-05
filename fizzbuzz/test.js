@@ -31,7 +31,7 @@ test('Calling fizzbuzz with 15 prints out the correct values', () => {
 });
 
 beforeEach(() => {
-  jest.spyOn(console, 'log');
+  jest.spyOn(console, 'log').mockImplementation(() => {});
 });
 
 afterEach(() => {

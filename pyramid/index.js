@@ -14,45 +14,42 @@
 //       ' ### '
 //       '#####'
 
-//      '   #   '
-//      '  ###  '
-//      ' ##### ' 
-//      '#######'
+function pyramid(n, row = 0, level = '') {
+  if (row === n) {
+    return;
+  }
 
-// function pyramid(n) {
-//     let mid = Math.floor(((n * 2) - 1) / 2)
-//     for (let row = 0; row < n; row++) {
-//         let pyr = ''
-//         for (let col = 0; col < (n * 2) - 1; col++) {
+  if (level.length === 2 * n - 1) {
+    console.log(level);
+    return pyramid(n, row + 1);
+  }
 
-//             if (mid - row <= col && mid + row >= col) {
-//                 pyr += '#'
-//             } else {
-//                 pyr += ' '
-//             }
-//         }
-//         console.log(pyr)
-//     }
-// }
-
-//SOLUTION 2 RECURSION
-function pyramid(n, row = 0, pyr = '') {
-    if (n === row) {
-        return
-    }
-    if (pyr.length === 2 * n - 1) {
-        console.log(pyr)
-        return pyramid(n, row + 1)
-    }
-    let mid = Math.floor(((n * 2) - 1) / 2)
-    let add;
-    if (mid - row <= pyr.length && mid + row >= pyr.length) {
-        add = '#'
-    } else {
-        add = ' '
-    }
-    pyramid(n, row, pyr + add)
+  const midpoint = Math.floor((2 * n - 1) / 2);
+  let add;
+  if (midpoint - row <= level.length && midpoint + row >= level.length) {
+    add = '#';
+  } else {
+    add = ' ';
+  }
+  pyramid(n, row, level + add);
 }
-pyramid(3)
 
 module.exports = pyramid;
+//
+// function pyramid(n) {
+//   const midpoint = Math.floor((2 * n - 1) / 2);
+//
+//   for (let row = 0; row < n; row++) {
+//     let level = '';
+//
+//     for (let column = 0; column < 2 * n - 1; column++) {
+//       if (midpoint - row <= column && midpoint + row >= column) {
+//         level += '#';
+//       } else {
+//         level += ' ';
+//       }
+//     }
+//
+//     console.log(level);
+//   }
+// }
